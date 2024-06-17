@@ -6,25 +6,51 @@ import MovieCard from "../MovieCard/MovieCard"
 function MovieList() {
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [pageNum, setPageNum] = useState(1);
 
     useEffect (() => {
         
         async function fetchMovie() {
             const apiKey = import.meta.env.VITE_API_KEY;
-            let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;  
+            let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${pageNum}`;  
             const response = await fetch(url);
             const data = await response.json();
             console.log(data.results);
-            setMovies(data.results);
+            setMovies((prevMovies) => [...prevMovies, ...data.results]);
+
         }
 
         fetchMovie();
 
-    }, []);
+    }, [pageNum]);
+
+    const searchMovies = async () => {
+        const apiKey = import.meta.env.VITE_API_KEY;
+        let searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`; 
+  
+        try { // from chatgpt
+            const response = await fetch(searchUrl);
+            const data = await response.json();
+            console.log('Search results:', data);
+            setMovies(data.results);
+        } catch (error) {
+            console.error('Error searching movies:', error);
+        }
+    };
+  
+    const handleSearch = () => {
+        if (searchTerm.trim() !== '') {
+            searchMovies();
+        }
+    };
 
     const filteredMovies = movies.filter((movie) =>
         movie.original_title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    const loadMoreMovies = () => {
+        setPageNum((prevPageNum) => prevPageNum + 1);
+    }
 
     return (
         <>
@@ -35,7 +61,7 @@ function MovieList() {
                     value = {searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                {/* <button onClick={(e) => setSearchTerm(e.target.value)}>Search</button> */}
+                <button onClick={handleSearch}>Search</button>
             </div>
             <div className = "movieList">
                 {filteredMovies.map((movie) => (
@@ -47,6 +73,7 @@ function MovieList() {
                     />
                 ))}
             </div>
+            <button onClick={loadMoreMovies}>Load More Movies</button>
         </>
     );
     
