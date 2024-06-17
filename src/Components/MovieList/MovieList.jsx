@@ -5,6 +5,7 @@ import MovieCard from "../MovieCard/MovieCard"
 
 function MovieList() {
     const [movies, setMovies] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect (() => {
         
@@ -21,18 +22,31 @@ function MovieList() {
 
     }, []);
 
+    const filteredMovies = movies.filter((movie) =>
+        movie.original_title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <>
-        <div className = "movieList">
-            {movies.map((movie) => (
-                <MovieCard 
-                    key = {movie.id}
-                    img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    title = {movie.original_title}
-                    rating = {movie.vote_average}
+            <div className = "searchContainer">
+                <input 
+                    type = "text"
+                    placeholder = "Search Movies..."
+                    value = {searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                 />
-            ))}
-        </div>
+                {/* <button onClick={(e) => setSearchTerm(e.target.value)}>Search</button> */}
+            </div>
+            <div className = "movieList">
+                {filteredMovies.map((movie) => (
+                    <MovieCard 
+                        key = {movie.id}
+                        img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        title = {movie.original_title}
+                        rating = {movie.vote_average}
+                    />
+                ))}
+            </div>
         </>
     );
     
