@@ -1,0 +1,11 @@
+.movieCard {
+    flex: 0 1 300px; /* Flex items have a base size of 300px but can grow and shrink */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+  }
