@@ -14,7 +14,7 @@
   .modal-content {
     background: white;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     position: relative;
     max-width: 500px;
     width: 90%;
@@ -22,9 +22,49 @@
   
   .modal-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
   
   .modal-body {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 0px; */
+    gap: 5px;
+  }
+
+  .modalImg {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .modalTitle {
+    font-size: 30px;
+    font-family: American Typewriter, serif;
+  }
+
+  .date {
+    font-size: 16px;
+    font-family: American Typewriter, serif;
+  }
+
+  .dateText {
+    font-weight: bold;
+  }
+
+  .overview {
+    font-size: 16px;
+    font-family: American Typewriter, serif;
+  }
+
+  .overviewText {
+    font-weight: bold;
+  }
+
+  .genre {
+    font-size: 16px;
+    font-family: American Typewriter, serif;
+  }
+
+  .genreText {
+    font-weight: bold;
   }

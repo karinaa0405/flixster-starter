@@ -6,6 +6,26 @@
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    padding: 10px;
     text-align: center;
-  }
+}
+
+.movieImg {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.movieTitle {
+  font-size: 20px;
+  font-family: American Typewriter, serif;
+}
+
+.movieRating {
+  font-size: 16px;
+  font-family: American Typewriter, serif;
+  font-style: italic;
+  color: gray;
+}

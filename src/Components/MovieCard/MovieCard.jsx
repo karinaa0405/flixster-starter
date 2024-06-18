@@ -6,9 +6,9 @@ const MovieCard = (props) => {
     return (
         <>
             <div className = "movieCard" onClick={props.onClick}>
-                <img src = {props.img}/>
-                <h1>{props.title}</h1>
-                <p>Rating: {props.rating}</p>
+                <img className = "movieImg" src = {props.img}/>
+                <h1 className = "movieTitle">{props.title}</h1>
+                <p className = "movieRating">Rating: {props.rating}</p>
             </div>
         </>
     );
