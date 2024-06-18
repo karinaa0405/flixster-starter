@@ -1,5 +1,5 @@
 .movieCard {
-    flex: 0 1 300px; /* Flex items have a base size of 300px but can grow and shrink */
+    flex: 0 1 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,6 +30,5 @@
 .movieRating {
   font-size: 16px;
   font-family: American Typewriter, serif;
-  /* font-style: italic; */
   color: gray;
 }

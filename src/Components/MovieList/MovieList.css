@@ -4,16 +4,21 @@
     justify-content: center;
     padding: 20px;
     gap: 20px;
-    background-color: #f0f0f0; /* Light grey background */
+    background-color: #f0f0f0;
 }
 
 .searchContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 20px;
+  gap: 100px;
   padding: 20px;
   background-color: #03256C;
+}
+
+.searching {
+  display: flex;
+  flex-direction: row;
 }
 
 .searchBar {
@@ -21,6 +26,16 @@
   font-family: American Typewriter, serif;
   width: 300px;
   height: 40px;
+  border-radius: 10px;
+}
+
+.searchButton {
+  width: 100px;
+  height: 47px;
+  background-color: #e5d460;
+  color: black;
+  font-family: American Typewriter, serif;
+  border-radius: 10px;
 }
 
 .sortSelector {
@@ -29,6 +44,7 @@
   font-family: American Typewriter, serif;
   width: 300px;
   height: 40px;
+  border-radius: 10px;
 }
 
 .buttonDiv {

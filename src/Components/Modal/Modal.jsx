@@ -10,16 +10,13 @@ const Modal = (props) => {
     <div className="modal" onClick={props.onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-body">
-            <img className = "modalImg" src = {props.img}/>
+            <img className = "modalImg" src = {props.img} alt = {props.title}/>
             <h1 className = "modalTitle">🎥 {props.title}</h1>
             <p className = "date"> <span className = "dateText">🎬 Release Date:</span> {props.releaseDate}</p>
             <p className = "overview"> <span className = "overviewText">🍿 Overview: </span>{props.overview}</p>
             <p className = "genre"> <span className = "genreText">📺 Genres:</span> {props.genre}</p>
             <button className = "closeButton" onClick={props.onClose}>Close</button>
         </div>
-        {/* <div className="modal-header">
-          <button onClick={props.onClose}>Close</button>
-        </div> */}
       </div>
     </div>
   );

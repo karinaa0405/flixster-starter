@@ -21,10 +21,10 @@ function MovieList() {
             const data = await response.json();
             console.log(data.results);
             if (pageNum === 1) {
-                setMovies(data.results); // Set initial movies
+                setMovies(data.results);
             }   
             else {
-                setMovies((prevMovies) => [...prevMovies, ...data.results]); // Append new movies
+                setMovies((prevMovies) => [...prevMovies, ...data.results]);
             }
 
         }
@@ -52,10 +52,10 @@ function MovieList() {
         const data = await response.json();
         console.log(data.results);
         if (pageNum === 1) {
-            setMovies(data.results); // Set initial movies
+            setMovies(data.results);
         }   
         else {
-            setMovies((prevMovies) => [...prevMovies, ...data.results]); // Append new movies
+            setMovies((prevMovies) => [...prevMovies, ...data.results]);
         }
     }
   
@@ -97,6 +97,7 @@ function MovieList() {
     return (
         <>
             <div className = "searchContainer">
+                <div className = "searching">
                 <input 
                     className = "searchBar"
                     type = "text"
@@ -106,20 +107,15 @@ function MovieList() {
                         handleSearch();
                     }}
                 />
+                <button className = "searchButton" onClick={handleSearch}>Search</button>
+                </div>
                 <select className = "sortSelector" onChange={(e) => setSortBy(e.target.value)}>
                     <option>👀 Sort By...</option> 
                     <option>🔤 Alphabetic</option>
                     <option>📆 Release Date</option>
                     <option>📈 Rating</option>
                 </select>
-                {/* <button onClick={handleSearch}>Search</button> */}
             </div>
-            {/* <select onChange={(e) => setSortBy(e.target.value)}>
-                <option>Sort By...</option> 
-                <option>Alphabetic</option>
-                <option>Release Date</option>
-                <option>Rating</option>
-            </select> */}
             <div className = "movieList">
                 {sortMovies(sortBy).map((movie) => (
                     <MovieCard

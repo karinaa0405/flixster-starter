@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure modal is on top of other content */
+    z-index: 1000;
   }
   
   .modal-content {
@@ -20,15 +20,9 @@
     width: 90%;
   }
   
-  /* .modal-header {
-    display: flex;
-    justify-content: center;
-  } */
-  
   .modal-body {
     display: flex;
     flex-direction: column;
-    /* margin-top: 0px; */
     gap: 5px;
   }
 
