@@ -1,4 +1,12 @@
 .footer {
-    padding: 20px;
-    background-color: lavender;
+    padding: 40px;
+    background-color: #03256C;
+}
+
+.footerInfo {
+    display: flex;
+    flex-direction: column;
+    font-family: American Typewriter, serif;
+    font-size: 20px;
+    color: white;
 }

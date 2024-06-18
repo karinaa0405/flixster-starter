@@ -8,7 +8,7 @@ const MovieCard = (props) => {
             <div className = "movieCard" onClick={props.onClick}>
                 <img className = "movieImg" src = {props.img}/>
                 <h1 className = "movieTitle">{props.title}</h1>
-                <p className = "movieRating">Rating: {props.rating}</p>
+                <p className = "movieRating">🌟{props.rating}</p>
             </div>
         </>
     );

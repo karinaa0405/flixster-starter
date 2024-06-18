@@ -10,6 +10,7 @@ function MovieList() {
     const [pageNum, setPageNum] = useState(1);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [genres, setGenres] = useState([]);
+    const [sortBy, setSortBy] = useState("");
 
     useEffect (() => {
         
@@ -44,6 +45,9 @@ function MovieList() {
     async function fetchSearch() {
         const apiKey = import.meta.env.VITE_API_KEY;
         let searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}&page=${pageNum}`;
+        if (searchTerm == "") {
+            searchUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${pageNum}`;  
+        }
         const response = await fetch(searchUrl);
         const data = await response.json();
         console.log(data.results);
@@ -54,20 +58,6 @@ function MovieList() {
             setMovies((prevMovies) => [...prevMovies, ...data.results]); // Append new movies
         }
     }
-
-    // const searchMovies = async () => {
-    //     const apiKey = import.meta.env.VITE_API_KEY;
-    //     let searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`; 
-  
-    //     try { // from chatgpt
-    //         const response = await fetch(searchUrl);
-    //         const data = await response.json();
-    //         console.log('Search results:', data);
-    //         setMovies(data.results);
-    //     } catch (error) {
-    //         console.error('Error searching movies:', error);
-    //     }
-    // };
   
     const handleSearch = () => {
         setPageNum(1);
@@ -86,36 +76,69 @@ function MovieList() {
         return genreIds.map(id => genres.find(genre => genre.id === id).name).join(', ');
     };
 
+    const sortMovies = (option) => {
+        let sortedMovies = [...movies];
+        switch (option) {
+            case "🔤 Alphabetic":
+                sortedMovies.sort((a, b) => a.original_title.localeCompare(b.original_title));
+                break;
+            case "📆 Release Date":
+                sortedMovies.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+                break;
+            case "📈 Rating":
+                sortedMovies.sort((a, b) => b.vote_average - a.vote_average);
+                break;
+            default:
+                break;
+        }
+        return sortedMovies;
+    };
+
     return (
         <>
             <div className = "searchContainer">
                 <input 
+                    className = "searchBar"
                     type = "text"
-                    placeholder = "Search Movies..."
+                    placeholder = "🔍 Search Movies..."
                     value = {searchTerm}
                     onChange={(e) => {setSearchTerm(e.target.value)
                         handleSearch();
                     }}
                 />
+                <select className = "sortSelector" onChange={(e) => setSortBy(e.target.value)}>
+                    <option>👀 Sort By...</option> 
+                    <option>🔤 Alphabetic</option>
+                    <option>📆 Release Date</option>
+                    <option>📈 Rating</option>
+                </select>
                 {/* <button onClick={handleSearch}>Search</button> */}
             </div>
+            {/* <select onChange={(e) => setSortBy(e.target.value)}>
+                <option>Sort By...</option> 
+                <option>Alphabetic</option>
+                <option>Release Date</option>
+                <option>Rating</option>
+            </select> */}
             <div className = "movieList">
-                {filteredMovies.map((movie) => (
-                    <MovieCard 
-                        key = {movie.id}
-                        img ={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                        title = {movie.original_title}
-                        rating = {movie.vote_average}
-                        onClick ={() => setSelectedMovie(movie)}
+                {sortMovies(sortBy).map((movie) => (
+                    <MovieCard
+                        key={movie.id}
+                        img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        title={movie.title}
+                        rating={movie.vote_average}
+                        onClick={() => setSelectedMovie(movie)}
                     />
                 ))}
             </div>
-            <button onClick={loadMoreMovies}>Load More Movies</button>
+            <div className = "buttonDiv">
+                <button className = "loadMoreButton" onClick={loadMoreMovies}>Load More Movies</button>
+            </div>
             {selectedMovie && (
                 <Modal
                     show = {selectedMovie !== null}
                     onClose={() => setSelectedMovie(null)}
-                    title = {selectedMovie.original_title}
+                    title = {selectedMovie.title}
                     img = {`https://image.tmdb.org/t/p/w500${selectedMovie.backdrop_path}`}
                     releaseDate = {selectedMovie.release_date}
                     overview = {selectedMovie.overview}

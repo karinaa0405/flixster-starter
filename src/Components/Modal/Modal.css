@@ -20,10 +20,10 @@
     width: 90%;
   }
   
-  .modal-header {
+  /* .modal-header {
     display: flex;
     justify-content: center;
-  }
+  } */
   
   .modal-body {
     display: flex;
@@ -67,4 +67,15 @@
 
   .genreText {
     font-weight: bold;
+  }
+
+  .closeButton {
+    padding: 10px;
+    width: 100px;
+    align-self: center;
+    font-size: 16px;
+    background-color: #03256C;
+    font-family: American Typewriter, serif;
+    border-radius: 10px;
+    border: none;
   }

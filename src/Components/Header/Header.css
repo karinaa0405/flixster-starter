@@ -1,4 +1,16 @@
-header {
+.header {
     padding: 40px;
-    background-color: lavender;
+    background-image: url("./minions.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+}
+
+.headerTitle {
+    font-size: 50px;
+    color: white;
+    margin-top: 90px;
+    font-family: American Typewriter, serif;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
