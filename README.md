@@ -11,9 +11,9 @@ Currently, two official plugins are available:
 
 ## Unit Assignment: Flixster
 
-Submitted by: **NAME**
+Submitted by: **Karina Perez**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **20** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
@@ -29,8 +29,8 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 - [x] **Search Functionality**
   - [x] Users can search for movies and view the results in a grid.
   - [x] Users can clear results and view previous current movies displayed.
-- [ ] **Accessibility Features**
-  - [ ] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
+- [x] **Accessibility Features**
+  - [x] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
 - [x] **Responsive Design**
   - [x] Website implements responsive web design.
 - [x] **Movie Details**
@@ -69,20 +69,16 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I think the labs helped for the most part. I understood how to use useEffect and useState and when. However, I did have to do a lot of researching on my own specifically when implementing the searching and sorting features as they weren't discussed in labs.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time I would work on stretch features such as the watched and favoriting the movies.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
-
-### Open-source libraries used
-
-- Add any links to open-source libraries used in your project.
+My project demo went well! I was confident and showed all the core features of my website. I noticed that one of my peers implemeted a page incrementer as their load more button, which was super cool and it would be nice to try next time.
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+I wanna give a shout out to my peer Sydney Brown and my instructor/advisor Devarsh Thaker!!
